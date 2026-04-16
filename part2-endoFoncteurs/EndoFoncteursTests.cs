@@ -23,7 +23,7 @@ public class EndoFoncteursTests
 
     // Résumé
     //Foncteur : Un conteneur avec map
-    //Endofoncteur : Un conteneur avec map qui reste dans le même langage (= tous les tiens)
+    //Endofoncteur : Un conteneur avec map qui reste dans le même type (= tous les tiens)
     //Monade : Un endofoncteur qui a en plus flatMap et pure, organisés comme un monoïde
 
     // ── PART 1: Func Delegate - The Foundation ──────────────────────────
@@ -55,7 +55,7 @@ public class EndoFoncteursTests
     {
         // Func<T1, T2, ..., TN, TResult> - last type parameter is always the return type
 
-        Func<int, int, int> add = delegate(int a, int b) { return a + b; };
+        Func<int, int, int> add = (int a, int b) => a + b;
 
         int result = add(3, 7);
 
@@ -72,7 +72,7 @@ public class EndoFoncteursTests
             return operation(x, y);
         }
 
-        Func<int, int, int> multiply = delegate(int a, int b) { return a * b; };
+        Func<int, int, int> multiply = (int a, int b) => a * b;
 
         int result = ApplyOperation(4, 5, multiply);
 
